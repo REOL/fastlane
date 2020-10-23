@@ -1,7 +1,5 @@
 require_relative 'storage/interface'
 require_relative 'storage/git_storage'
-require_relative 'storage/google_cloud_storage'
-require_relative 'storage/s3_storage'
 
 module Match
   module Storage
@@ -11,12 +9,6 @@ module Match
           "git" => lambda { |params|
             return Storage::GitStorage.configure(params)
           },
-          "google_cloud" => lambda { |params|
-            return Storage::GoogleCloudStorage.configure(params)
-          },
-          "s3" => lambda { |params|
-            return Storage::S3Storage.configure(params)
-          }
         }
       end
 
